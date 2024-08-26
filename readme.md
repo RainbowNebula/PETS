@@ -2,7 +2,7 @@
 # Periodically Exchange Teacher-Student for Source-Free Object Detection
 - 🔔This is the re-implementation code for the paper "Periodically Exchange Teacher-Student for Source-Free Object Detection", ICCV 2023.
 - Sometimes, it's also feasible to apply exchange strategies within a single teacher-student framework to alleviate instability issues. 
-
+![](https://drive.google.com/uc?id=1xPadrtuMUzvY_ghG7f5GHXwIVPyWo13J)
 # 🛠️Setup
 ## Runtime
 
