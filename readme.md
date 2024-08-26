@@ -9,6 +9,7 @@
 The main python libraries we use:
 - Python 3.8
 - torch 1.8.1
+- [detectron2](https://github.com/facebookresearch/detectron2)
 
 ## Datasets
 For convenience, the data annotation files have been uniformly processed into JSON files following COCO format. By the way, we have also processed the Clipart1K and Watercolor used in other methods. The source images of the dataset requires an additional download. The dataset configurations can be changed in PETS/ubteacher/data/datasets/builtin.py.
