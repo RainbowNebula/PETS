@@ -1,0 +1,36 @@
+_BASE_: "../Base-RCNN-VGG16.yaml"
+OUTPUT_DIR: "./output/C2F"
+MODEL:
+  META_ARCHITECTURE: "TwoStagePseudoLabGeneralizedRCNN"
+  WEIGHTS: ""
+  LABLED_WEIGHTS: "/mnt/csip-113/PETS/source/C2F.pth"
+  MASK_ON: False
+  PROPOSAL_GENERATOR:
+    NAME: "PseudoLabRPN"
+  RPN:
+    POSITIVE_FRACTION: 0.25
+  ROI_HEADS:
+    NAME: "StandardROIHeadsPseudoLab"
+    NUM_CLASSES: 8
+    LOSS: "FocalLoss" # variant: "CrossEntropy"
+SOLVER:
+  LR_SCHEDULER_NAME: "WarmupMultiStepLR"
+  EPOCHS: 10
+  WARM_UP_EPOCH: 2
+  BASE_LR: 0.0008
+  IMG_PER_BATCH_UNLABEL: 8
+DATALOADER:
+  SUP_PERCENT: 100.0
+DATASETS:
+  CROSS_DATASET: True
+  TRAIN_UNLABEL: ("cityscapes_foggy_train_1",)
+  TEST: ("cityscapes_foggy_val_1",)
+SFDA:
+  Trainer: "dateacher"
+  BBOX_THRESHOLD: 0.5
+  TEACHER_UPDATE_ITER: 2
+  EMA_KEEP_RATE_dynamic: 0.9996
+  UNSUP_LOSS_WEIGHT: 2.0
+  PSEUDO_THRESHOLD: 0.5
+  UNSUP_ROI_LOSS_WEIGHT: 1.0
+  UNSUP_RPN_LOSS_WEIGHT: 1.0
