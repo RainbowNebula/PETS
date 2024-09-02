@@ -7,7 +7,7 @@
 ## Runtime
 
 The main python libraries we use:
-- Python 3.8
+- python 3.8
 - torch 1.8.1
 - [detectron2](https://github.com/facebookresearch/detectron2)
 
