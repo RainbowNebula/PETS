@@ -25,6 +25,11 @@ The C2F and C2B tasks share source weights in the method.
 
 
 # 🎢Run
+Use the packaged Docker image if you don't want to build the environment:
+```shell
+docker pull cosword/mydocker:v1.6.9
+```
+
 For example, to run the experiment, just enter the following cmd on root directory:
 ```shell
 python train_net --config configs/UDA/C2F.yaml
